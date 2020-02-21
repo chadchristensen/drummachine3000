@@ -1,0 +1,131 @@
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  height: 100px;
+  padding: 20px;
+  color: #222;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.container {
+  display: inline-block;
+  width: 450px;
+  padding: 25px;
+  background-color: #222222;
+  border-radius: 5px;
+  color: white;
+  border-top: 4px solid #292929;
+  border-bottom: 4px solid #111111;
+}
+
+.drumbank {
+  width: 240px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: wrap-reverse;
+  align-content: center;
+}
+
+.drumpad {
+  background-color: #666;
+  height: 50px;
+  width: 50px;
+  border-radius: 2px;
+  margin: 5px;
+  outline: none;
+  border-color: #807f7f #777 #525252;
+}
+
+.drumpad:hover {
+  cursor: pointer;
+}
+
+.led-display {
+  width: 60%;
+  border-radius: 2px;
+  margin: 0 auto 20px auto;
+  padding: 25px 25px;
+  background-color: #75dbdc;
+  color: #1d5859;
+  border: 1px solid #4cbabb;
+  text-transform: uppercase;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  margin-left: 25px;
+  text-align: right;
+}
+.control {
+  display: inline-block;
+}
+
+.form-control {
+  margin-bottom: 10px;
+}
+
+.form-control input {
+  padding: 2px 5px;
+  font-size: 1em;
+  border-radius: 2px;
+  border: 2px solid #525252;
+  width: 4em;
+
+}
+
+label {
+  text-transform: uppercase;
+  font-size: .75em;
+  margin-right: 10px;
+}
+
+.control-label {
+  font-size: .7em;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: #eee;
+}
+
+.control-knob {
+  position: relative;
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  border-radius: 1em;
+  cursor: pointer;
+  background-color: #111111;
+  border: 2px solid #000000;
+  transition: transform 1s;
+}
+
+.control-knob-dot {
+  position: absolute;
+  top: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: .2em;
+  width: .2em;
+  border-radius: .1em;
+  background-color: #eee;
+}
