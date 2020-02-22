@@ -119,7 +119,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Drum Maschine 2000</h1>
+          <h1 className="App-title">Drum Maschine 3000</h1>
         </header>
         <div className="container">
           <LedDisplay sound={this.state.activeSound} />
