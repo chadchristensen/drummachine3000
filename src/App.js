@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import DrumPad from "./components/DrumPad.js";
+import DrumBank from "./components/DrumBank.js";
 import LedDisplay from "./LedDisplay.js";
 import Sound from "./Sound.js";
 import Buffer from "./Buffer.js";
@@ -89,19 +89,7 @@ class App extends Component {
     }
   }
 
-  renderDrumPads() {
-    return this.state.sounds.map((sound, i) => {
-      return (
-        <DrumPad
-          key={sound}
-          item={i}
-          onClick={() => this.handlePadPress(sound, i)}
-        />
-      );
-    });
-  }
-
-  handlePadPress(sound, i) {
+  handlePadPress = (sound, i) => {
     var soundFile = new Sound(
       this.state.context,
       this.buffer.getSoundByIndex(i)
@@ -124,7 +112,7 @@ class App extends Component {
         <div className="container">
           <LedDisplay sound={this.state.activeSound} />
           <div style={{ display: "flex" }}>
-            <div className="drumbank">{this.renderDrumPads()}</div>
+            <DrumBank sounds={this.state.sounds} handlePadPress={this.handlePadPress} />
             <div className="controls">
               <Knob label="volume" minValue="0" maxValue="100" />
             </div>
