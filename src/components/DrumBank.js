@@ -24,7 +24,8 @@ function DrumBank({ sounds, handlePadPress }) {
 }
 
 DrumBank.propTypes = {
-
+  sounds: PropTypes.arrayOf(PropTypes.string).isRequired,
+  handlePadPress: PropTypes.func.isRequired
 }
 
 export default DrumBank

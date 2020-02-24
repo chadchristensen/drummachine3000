@@ -114,7 +114,7 @@ class App extends Component {
           <div style={{ display: "flex" }}>
             <DrumBank sounds={this.state.sounds} handlePadPress={this.handlePadPress} />
             <div className="controls">
-              <Knob label="volume" minValue="0" maxValue="100" />
+              <Knob label="volume" minValue={0} maxValue={100} />
             </div>
           </div>
         </div>

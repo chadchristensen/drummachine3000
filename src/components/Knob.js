@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 export default function Knob({label, minValue, maxValue}) {
   return (
@@ -38,4 +39,10 @@ export default function Knob({label, minValue, maxValue}) {
       </span>
     </div>
   )
+}
+
+Knob.propTypes = {
+  label: PropTypes.string,
+  minValue: PropTypes.number,
+  maxValue: PropTypes.number
 }

@@ -1,6 +1,7 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-export default (props) => {
+export default function DrumPad(props) {
   return (
     <button
         style={{
@@ -14,3 +15,6 @@ export default (props) => {
   )
 }
 
+DrumPad.propTypes = {
+  onClick: PropTypes.func.isRequired
+}

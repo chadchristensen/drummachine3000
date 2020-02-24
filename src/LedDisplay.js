@@ -1,9 +1,14 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-export default (props) => {
+export default function LedDisplay({ sound }) {
   return (
     <div className="led-display">
-      {props.sound}
+      {sound}
     </div>
   )
+}
+
+LedDisplay.propTypes = {
+  sound: PropTypes.string
 }
