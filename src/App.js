@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import DrumPad from "./DrumPad.js";
+import DrumPad from "./components/DrumPad.js";
 import LedDisplay from "./LedDisplay.js";
 import Sound from "./Sound.js";
 import Buffer from "./Buffer.js";
+import Knob from './components/Knob.js';
 import "./App.css";
-import NumericInput from "./NumericInput.js";
 
 class App extends Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class App extends Component {
       this.handleKeyPress(e);
     });
 
-	// load all of our sounds
+    // load all of our sounds
     this.buffer = new Buffer(this.state.context, this.state.sounds);
     this.buffer.loadAll();
   }
@@ -85,7 +85,7 @@ class App extends Component {
         this.handlePadPress("vocal04", 15);
         break;
       default:
-		break;
+        break;
     }
   }
 
@@ -108,8 +108,8 @@ class App extends Component {
     );
 
     soundFile.play(this.state.volume);
-    
-	  // display the active sound in the LED Display
+
+    // display the active sound in the LED Display
     this.setState({
       activeSound: sound
     });
@@ -123,20 +123,12 @@ class App extends Component {
         </header>
         <div className="container">
           <LedDisplay sound={this.state.activeSound} />
-		  <div style={{display: "flex"}}>
-          	<div className="drumbank">{this.renderDrumPads()}</div>
-			<div className="controls">
-				<NumericInput
-					step="10"
-					onChange={() => {}}
-					value={this.state.volume}
-					min="0"
-					max="100"
-					label="volume"
-					id="volume"
-				/>
-			</div>
-		  </div>
+          <div style={{ display: "flex" }}>
+            <div className="drumbank">{this.renderDrumPads()}</div>
+            <div className="controls">
+              <Knob label="volume" minValue="0" maxValue="100" />
+            </div>
+          </div>
         </div>
       </div>
     );
