@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useMemo} from 'react';
 import PropTypes from 'prop-types';
 
-export default function DrumPad(props) {
+function DrumPad(props) {
   return (
     <button
         style={{
@@ -18,3 +18,5 @@ export default function DrumPad(props) {
 DrumPad.propTypes = {
   onClick: PropTypes.func.isRequired
 }
+
+export default React.memo(DrumPad)

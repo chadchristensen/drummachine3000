@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 
-export default function Knob({label, minValue, maxValue}) {
+function Knob({label, minValue, maxValue}) {
   return (
     <div
       style={{display: "flex", flexDirection: "column", alignItems: "center"}}
@@ -46,3 +46,5 @@ Knob.propTypes = {
   minValue: PropTypes.number,
   maxValue: PropTypes.number
 }
+
+export default React.memo(Knob);
