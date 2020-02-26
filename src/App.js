@@ -17,6 +17,15 @@ const AppContainer = styled.div`
   background: linear-gradient(45deg, #e9e4f0, #d3cce3);
 `
 
+const Title = styled.h1`
+  font-family: 'Oxygen', 'Arial', 'sans-serif';
+  font-weight: 700;
+  font-size: 3em;
+  font-variant: small-caps;
+  color: #332f3a;
+  text-shadow: 0px 1px 2px #807598;
+`
+
 const DrumMachine = styled.div`
   display: inline-block;
   width: 600px;
@@ -134,7 +143,7 @@ class App extends Component {
     return (
       <AppContainer>
         <header>
-          <h1>Drum Maschine 3000</h1>
+          <Title>Drum Maschine 3000</Title>
         </header>
         <DrumMachine>
           <LedDisplay sound={this.state.activeSound} />
