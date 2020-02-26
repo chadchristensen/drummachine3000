@@ -8,6 +8,15 @@ import Buffer from "./Buffer.js";
 import Knob from './components/Knob.js';
 import "./App.css";
 
+const AppContainer = styled.div`
+  text-align: center;
+  padding: 3em;
+  min-height: 100vh;
+  background: #d3cce3;
+  background: -webkit-linear-gradient(45deg, #e9e4f0, #d3cce3);
+  background: linear-gradient(45deg, #e9e4f0, #d3cce3);
+`
+
 const DrumMachine = styled.div`
   display: inline-block;
   width: 600px;
@@ -15,8 +24,9 @@ const DrumMachine = styled.div`
   background-color: #666666;
   border-radius: 5px;
   color: white;
-  border-top: 4px solid #565656;
+  border-top: 1px solid #565656;
   border-bottom: 4px solid #565656;
+  box-shadow: 1px 3px 5px 0px #807598;
 `
 
 const WorkSpace = styled.div`
@@ -122,7 +132,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="app">
+      <AppContainer>
         <header>
           <h1>Drum Maschine 3000</h1>
         </header>
@@ -138,7 +148,7 @@ class App extends Component {
             </div>
           </WorkSpace>
         </DrumMachine>
-      </div>
+      </AppContainer>
     );
   }
 }
