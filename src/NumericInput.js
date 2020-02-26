@@ -19,7 +19,7 @@ export default class NumericInput extends Component {
 
   render() {
     return (
-        <div className="form-control">
+        <div>
             <label htmlFor={this.props.id}>{this.props.label}</label>
             <input
               type="number"

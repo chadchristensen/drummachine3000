@@ -1,7 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 import DrumPad from './DrumPad';
+
+const PadsContainer = styled.div`
+  width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: wrap-reverse;
+  align-content: center;
+`
 
 function DrumBank({ sounds, handlePadPress }) {
   const renderDrumPads = () => {
@@ -17,9 +26,9 @@ function DrumBank({ sounds, handlePadPress }) {
   }
 
   return (
-    <div className="drumbank">
+    <PadsContainer>
       {renderDrumPads()}
-    </div>
+    </PadsContainer>
   )
 }
 

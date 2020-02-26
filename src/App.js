@@ -1,10 +1,27 @@
 import React, { Component } from "react";
+import styled from 'styled-components';
+
 import DrumBank from "./components/DrumBank.js";
-import LedDisplay from "./LedDisplay.js";
+import LedDisplay from "./components/LedDisplay.js";
 import Sound from "./Sound.js";
 import Buffer from "./Buffer.js";
 import Knob from './components/Knob.js';
 import "./App.css";
+
+const DrumMachine = styled.div`
+  display: inline-block;
+  width: 600px;
+  padding: 25px;
+  background-color: #666666;
+  border-radius: 5px;
+  color: white;
+  border-top: 4px solid #565656;
+  border-bottom: 4px solid #565656;
+`
+
+const WorkSpace = styled.div`
+  display: flex;
+`
 
 class App extends Component {
   constructor(props) {
@@ -105,19 +122,22 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Drum Maschine 3000</h1>
+      <div className="app">
+        <header>
+          <h1>Drum Maschine 3000</h1>
         </header>
-        <div className="container">
+        <DrumMachine>
           <LedDisplay sound={this.state.activeSound} />
-          <div style={{ display: "flex" }}>
-            <DrumBank sounds={this.state.sounds} handlePadPress={this.handlePadPress} />
-            <div className="controls">
+          <WorkSpace>
+            <DrumBank
+              sounds={this.state.sounds}
+              handlePadPress={this.handlePadPress}
+            />
+            <div>
               <Knob label="volume" minValue={0} maxValue={100} />
             </div>
-          </div>
-        </div>
+          </WorkSpace>
+        </DrumMachine>
       </div>
     );
   }
