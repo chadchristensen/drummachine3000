@@ -11,6 +11,8 @@ const DisplayContainer = styled.div`
   background: #666666;
   box-shadow: inset 8px 8px 15px #575757, inset -8px -8px 15px #757575;
   text-transform: uppercase;
+  font-family: 'Raleway Dots';
+  text-shadow: rgba(255, 255, 255, .8) 0 0 2px;
 `
 
 function LedDisplay({ sound }) {

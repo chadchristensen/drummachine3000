@@ -32,7 +32,8 @@ const DrumMachine = styled.div`
   padding: 25px;
   background-color: #666666;
   border-radius: 5px;
-  color: white;
+  color: #ddd;
+  letter-spacing: .05em;
   border-top: 1px solid #565656;
   border-bottom: 4px solid #565656;
   box-shadow: 1px 3px 5px 0px #807598;

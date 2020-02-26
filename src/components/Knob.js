@@ -18,11 +18,10 @@ const Dial = styled.div`
 `
 
 const Label = styled.span`
-  color: #ddd;
+  font-family: 'Raleway Dots';
   text-shadow: rgba(255, 255, 255, .8) 0 0 2px;
   font-size: .75em;
   margin-top: .75em;
-  letter-spacing: .05em;
   text-transform: uppercase;
 `
 
