@@ -20,11 +20,16 @@ const Pad = styled.button`
   &:active {
     background: linear-gradient(145deg, #6d6d6d, #5c5c5c);
   }
+
+  &:focus {
+    border: 2px outset rgba(149, 131, 165, 0.45);
+  }
 `
 
 function DrumPad(props) {
   return (
     <Pad
+        onFocus={() => console.log('onfocus triggerd')}
         onMouseDown={props.handlePadPress}
     />
   )
