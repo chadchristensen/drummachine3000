@@ -71,7 +71,6 @@ class App extends Component {
   }
 
   handleKeyPress(e) {
-    e.preventDefault();
     switch (e.which) {
       case 90:
         this.handlePadPress("kick01", 0);
