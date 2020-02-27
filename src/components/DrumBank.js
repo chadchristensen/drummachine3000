@@ -19,7 +19,7 @@ function DrumBank({ sounds, handlePadPress }) {
         <DrumPad
           key={sound}
           item={i}
-          onClick={() => handlePadPress(sound, i)}
+          handlePadPress={() => handlePadPress(sound, i)}
         />
       );
     });

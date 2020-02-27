@@ -25,13 +25,13 @@ const Pad = styled.button`
 function DrumPad(props) {
   return (
     <Pad
-        onClick={props.onClick}
+        onMouseDown={props.handlePadPress}
     />
   )
 }
 
 DrumPad.propTypes = {
-  onClick: PropTypes.func.isRequired
+  handlePadPress: PropTypes.func.isRequired
 }
 
 export default React.memo(DrumPad)
