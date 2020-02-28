@@ -18,6 +18,12 @@ const DisplayContainer = styled.div`
   text-shadow: rgba(255, 255, 255, .8) 0 0 2px;
 `
 
+const SoundRow = styled.div`
+  opacity: ${props => props.sound !== "" ? 1 : 0};
+  transition: opacity .4s cubic-bezier(0, 1.17, 0.58, 1);
+  height: 1em;
+`
+
 const ParameterRow = styled.div`
   font-size: .7em;
   align-self: flex-start;
@@ -31,7 +37,7 @@ const ParameterRow = styled.div`
 function LedDisplay({ sound }) {
   return (
     <DisplayContainer>
-      <span>{sound}</span>
+      <SoundRow sound={sound}>{sound}</SoundRow>
       <ParameterRow>
         {/* // TODO: Change to dynamic data for parameters */}
         <span>Volume: 50%</span>

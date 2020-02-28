@@ -18,9 +18,10 @@ function DrumBank({ sounds, activeSound, handlePadPress }) {
       return (
         <DrumPad
           isActive={sound === activeSound}
+          sound={sound}
           key={sound}
           item={i}
-          handlePadPress={() => handlePadPress(sound, i)}
+          handlePadPress={handlePadPress}
         />
       );
     });

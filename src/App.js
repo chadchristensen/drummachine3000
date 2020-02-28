@@ -65,6 +65,10 @@ class App extends Component {
       this.handleKeyPress(e);
     });
 
+    window.addEventListener("keyup", () => {
+      this.setState({activeSound: ""})
+    })
+
     // load all of our sounds
     this.buffer = new Buffer(this.state.context, this.state.sounds);
     this.buffer.loadAll();
@@ -126,7 +130,12 @@ class App extends Component {
   }
 
   handlePadPress = (sound, i) => {
-    var soundFile = new Sound(
+    if (sound === "") {
+      this.setState({activeSound: ""});
+      return;
+    }
+
+    const soundFile = new Sound(
       this.state.context,
       this.buffer.getSoundByIndex(i)
     );

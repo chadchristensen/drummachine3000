@@ -10,7 +10,7 @@ const Pad = styled.button`
   border-radius: 6px;
   margin: 10px;
   outline: none;
-  border-color: transparent;
+  border: ${props => props.isActive ? '2px outset rgba(149, 131, 165, 0.45)' : 'transparent'};
   box-shadow:  8px 8px 15px #575757, -8px -8px 15px #757575;
   transition: backround-image 1s linear;
 
@@ -21,23 +21,22 @@ const Pad = styled.button`
   &:active {
     background: linear-gradient(145deg, #6d6d6d, #5c5c5c);
   }
-
-  &:focus {
-    border: 2px outset rgba(149, 131, 165, 0.45);
-  }
 `
 
-function DrumPad(props) {
+function DrumPad({isActive, sound, handlePadPress, item}) {
   return (
     <Pad
         // onFocus={() => console.log('onfocus triggerd')}
-        isActive={props.isActive}
-        onMouseDown={props.handlePadPress}
+        isActive={isActive}
+        onMouseDown={() => handlePadPress(sound, item)}
+        onMouseUp={() => handlePadPress("", item)}
     />
   )
 }
 
 DrumPad.propTypes = {
+  sound: PropTypes.string.isRequired,
+  item: PropTypes.number.isRequired,
   isActive: PropTypes.bool.isRequired,
   handlePadPress: PropTypes.func.isRequired
 }
