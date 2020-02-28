@@ -29,7 +29,7 @@ const Pad = styled.button`
 function DrumPad(props) {
   return (
     <Pad
-        onFocus={() => console.log('onfocus triggerd')}
+        // onFocus={() => console.log('onfocus triggerd')}
         onMouseDown={props.handlePadPress}
     />
   )

@@ -3,22 +3,40 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const DisplayContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   width: 60%;
-  border-radius: 2px;
+  height: 5em;
+  padding: 0 1em;
+  border-radius: 3px;
   margin: 0 auto 20px auto;
-  padding: 25px 25px;
-  border-radius: 6px;
-  background: #666666;
-  box-shadow: inset 8px 8px 15px #575757, inset -8px -8px 15px #757575;
+  background: linear-gradient(174deg, #353535, #2d2d2d);
+  border: 3px solid #2d2d2d;
   text-transform: uppercase;
   font-family: 'Raleway Dots';
   text-shadow: rgba(255, 255, 255, .8) 0 0 2px;
 `
 
+const ParameterRow = styled.div`
+  font-size: .7em;
+  align-self: flex-start;
+
+  span {
+    display: inline-block;
+    margin-right: 1em;
+  }
+`
+
 function LedDisplay({ sound }) {
   return (
     <DisplayContainer>
-      {sound}
+      <span>{sound}</span>
+      <ParameterRow>
+        {/* // TODO: Change to dynamic data for parameters */}
+        <span>Volume: 50%</span>
+        <span>Delay: 20%</span>
+      </ParameterRow>
     </DisplayContainer>
   )
 }
