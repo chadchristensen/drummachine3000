@@ -149,6 +149,7 @@ class App extends Component {
           <LedDisplay sound={this.state.activeSound} />
           <WorkSpace>
             <DrumBank
+              activeSound={this.state.activeSound}
               sounds={this.state.sounds}
               handlePadPress={this.handlePadPress}
             />

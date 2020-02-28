@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Pad = styled.button`
-  background-color: #666666;
+  background: ${props => props.isActive ? 'linear-gradient(145deg, #6d6d6d, #5c5c5c)' : '#666666'};
+  /* background: #666666; */
   height: 75px;
   width: 75px;
   border-radius: 6px;
@@ -30,12 +31,14 @@ function DrumPad(props) {
   return (
     <Pad
         // onFocus={() => console.log('onfocus triggerd')}
+        isActive={props.isActive}
         onMouseDown={props.handlePadPress}
     />
   )
 }
 
 DrumPad.propTypes = {
+  isActive: PropTypes.bool.isRequired,
   handlePadPress: PropTypes.func.isRequired
 }
 

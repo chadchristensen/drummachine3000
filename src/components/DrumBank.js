@@ -12,11 +12,12 @@ const PadsContainer = styled.div`
   align-content: center;
 `
 
-function DrumBank({ sounds, handlePadPress }) {
+function DrumBank({ sounds, activeSound, handlePadPress }) {
   const renderDrumPads = () => {
     return sounds.map((sound, i) => {
       return (
         <DrumPad
+          isActive={sound === activeSound}
           key={sound}
           item={i}
           handlePadPress={() => handlePadPress(sound, i)}
@@ -34,6 +35,7 @@ function DrumBank({ sounds, handlePadPress }) {
 
 DrumBank.propTypes = {
   sounds: PropTypes.arrayOf(PropTypes.string).isRequired,
+  activeSound: PropTypes.string,
   handlePadPress: PropTypes.func.isRequired
 }
 
