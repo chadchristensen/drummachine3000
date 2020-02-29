@@ -1,0 +1,82 @@
+[
+  {
+    "keyCode": 90,
+    "sound": "kick01",
+    "keyboardChar": "z"
+  },
+  {
+    "keyCode": 88,
+    "sound": "kick02",
+    "keyboardChar": "x"
+  },
+  {
+    "keyCode": 67,
+    "sound": "snare01",
+    "keyboardChar": "c"
+  },
+  {
+    "keyCode": 86,
+    "sound": "snare02",
+    "keyboardChar": "v"
+  },
+  {
+    "keyCode": 65,
+    "sound": "clap01",
+    "keyboardChar": "a"
+  },
+  {
+    "keyCode": 83,
+    "sound": "closedhh01",
+    "keyboardChar": "s"
+  },
+  {
+    "keyCode": 68,
+    "sound": "closedhh02",
+    "keyboardChar": "d"
+  },
+  {
+    "keyCode": 70,
+    "sound": "openhh01",
+    "keyboardChar": "f"
+  },
+  {
+    "keyCode": 81,
+    "sound": "sfx01",
+    "keyboardChar": "q"
+  },
+  {
+    "keyCode": 87,
+    "sound": "sfx02",
+    "keyboardChar": "w"
+  },
+  {
+    "keyCode": 69,
+    "sound": "sfx03",
+    "keyboardChar": "e"
+  },
+  {
+    "keyCode": 82,
+    "sound": "sfx04",
+    "keyboardChar": "r"
+  },
+  {
+    "keyCode": 49,
+    "sound": "vocal01",
+    "keyboardChar": "1"
+  },
+  {
+    "keyCode": 50,
+    "sound": "vocal02",
+    "keyboardChar": "2"
+  },
+  {
+    "keyCode": 51,
+    "sound": "vocal03",
+    "keyboardChar": "3"
+  },
+  {
+    "keyCode": 52,
+    "sound": "vocal04",
+    "keyboardChar": "4"
+  }
+]
