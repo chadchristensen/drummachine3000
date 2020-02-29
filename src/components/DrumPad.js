@@ -4,15 +4,13 @@ import styled from 'styled-components';
 
 const Pad = styled.button`
   background: ${props => props.isActive ? 'linear-gradient(145deg, #6d6d6d, #5c5c5c)' : '#666666'};
-  /* background: #666666; */
   height: 75px;
   width: 75px;
   border-radius: 6px;
   margin: 10px;
   outline: none;
   border: ${props => props.isActive ? '2px outset rgba(149, 131, 165, 0.45)' : 'transparent'};
-  box-shadow:  8px 8px 15px #575757, -8px -8px 15px #757575;
-  transition: backround-image 1s linear;
+  box-shadow: 8px 8px 15px #575757, -8px -8px 15px #757575;
 
   &:hover {
     cursor: pointer;
@@ -21,16 +19,25 @@ const Pad = styled.button`
   &:active {
     background: linear-gradient(145deg, #6d6d6d, #5c5c5c);
   }
+
+  kbd {
+    font-family: 'Oxygen';
+    font-size: ${props => props.isActive ? '2.4em' : '2.5em'};
+    text-transform: uppercase;
+    color: #d8d1e7;
+    text-shadow: 0 0 2px #d8d2e7;
+  }
 `
 
-function DrumPad({isActive, sound, handlePadPress, item}) {
+function DrumPad({isActive, sound, keyboardChar, handlePadPress, item}) {
   return (
     <Pad
-        // onFocus={() => console.log('onfocus triggerd')}
         isActive={isActive}
         onMouseDown={() => handlePadPress(sound, item)}
         onMouseUp={() => handlePadPress("", item)}
-    />
+    >
+      <kbd>{keyboardChar}</kbd>
+    </Pad>
   )
 }
 

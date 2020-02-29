@@ -8,6 +8,8 @@ import Buffer from "./Buffer.js";
 import Knob from './components/Knob.js';
 import "./App.css";
 
+import keyMappings from './data/keyMappings.json';
+
 const AppContainer = styled.div`
   text-align: center;
   padding: 3em;
@@ -48,12 +50,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      sounds: [
-        "kick01", "kick02", "snare01", "snare02",
-        "clap01", "closedhh01", "closedhh02", "openhh01",
-        "sfx01", "sfx02", "sfx03", "sfx04",
-        "vocal01", "vocal02", "vocal03", "vocal04"
-      ],
+      sounds: keyMappings,
       activeSound: "Hit a pad",
       context: new (window.AudioContext || window.webkitAudioContext)(),
       volume: 50
@@ -65,68 +62,23 @@ class App extends Component {
       this.handleKeyPress(e);
     });
 
-    window.addEventListener("keyup", () => {
+    window.addEventListener("keyup", (e) => {
+      // TODO: Make helper function to check keyCode
+      if (keyMappings.findIndex(keyMapping => keyMapping.keyCode === e.which) === -1) return;
       this.setState({activeSound: ""})
     })
 
     // load all of our sounds
-    this.buffer = new Buffer(this.state.context, this.state.sounds);
+    this.buffer = new Buffer(this.state.context, Object.values(keyMappings).map(keyMapping => keyMapping.sound));
     this.buffer.loadAll();
   }
 
   handleKeyPress(e) {
-    switch (e.which) {
-      case 90:
-        this.handlePadPress("kick01", 0);
-        break;
-      case 88:
-        this.handlePadPress("kick02", 1);
-        break;
-      case 67:
-        this.handlePadPress("snare01", 2);
-        break;
-      case 86:
-        this.handlePadPress("snare02", 3);
-        break;
-      case 65:
-        this.handlePadPress("clap01", 4);
-        break;
-      case 83:
-        this.handlePadPress("closedhh01", 5);
-        break;
-      case 68:
-        this.handlePadPress("closedhh02", 6);
-        break;
-      case 70:
-        this.handlePadPress("openhh01", 7);
-        break;
-      case 81:
-        this.handlePadPress("sfx01", 8);
-        break;
-      case 87:
-        this.handlePadPress("sfx02", 9);
-        break;
-      case 69:
-        this.handlePadPress("sfx03", 10);
-        break;
-      case 82:
-        this.handlePadPress("sfx04", 11);
-        break;
-      case 49:
-        this.handlePadPress("vocal01", 12);
-        break;
-      case 50:
-        this.handlePadPress("vocal02", 13);
-        break;
-      case 51:
-        this.handlePadPress("vocal03", 14);
-        break;
-      case 52:
-        this.handlePadPress("vocal04", 15);
-        break;
-      default:
-        break;
-    }
+    const keyIndex = keyMappings.findIndex( keyMapping => keyMapping.keyCode === e.which);
+
+    if (keyIndex === -1) return;
+
+    this.handlePadPress(keyMappings[keyIndex].sound, keyIndex)
   }
 
   handlePadPress = (sound, i) => {

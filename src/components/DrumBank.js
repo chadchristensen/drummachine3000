@@ -14,10 +14,12 @@ const PadsContainer = styled.div`
 
 function DrumBank({ sounds, activeSound, handlePadPress }) {
   const renderDrumPads = () => {
-    return sounds.map((sound, i) => {
+    return sounds.map((keyInfo, i) => {
+      const {sound, keyboardChar} = keyInfo;
       return (
         <DrumPad
           isActive={sound === activeSound}
+          keyboardChar={keyboardChar}
           sound={sound}
           key={sound}
           item={i}
