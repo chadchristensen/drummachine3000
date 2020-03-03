@@ -37,7 +37,7 @@ function DrumBank({ sounds, activeSound, handlePadPress }) {
 }
 
 DrumBank.propTypes = {
-  sounds: PropTypes.arrayOf(PropTypes.string).isRequired,
+  sounds: PropTypes.arrayOf(PropTypes.object).isRequired,
   activeSound: PropTypes.string,
   handlePadPress: PropTypes.func.isRequired
 }
