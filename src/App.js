@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 
 import DrumBank from "./components/DrumBank.js";
@@ -44,97 +44,84 @@ const DrumMachine = styled.div`
 const WorkSpace = styled.div`
   display: flex;
 `
+let buffer;
+let context;
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+function App () {
+  const sounds = keyMappings;
 
-    this.state = {
-      sounds: keyMappings,
-      activeSound: "Hit a pad",
-      context: new (window.AudioContext || window.webkitAudioContext)(),
-      volume: 50
-    };
-  }
+  const [activeSound, setActiveSound] = useState('Hit a pad');
+  const [volume, setVolume] = useState(50);
 
-  componentDidMount() {
+  // Setup on first render
+  useEffect(() => {
+    // Setup Audio context
+    context = new (window.AudioContext || window.webkitAudioContext)();
+
+    // Create buffer and load all sounds
+    buffer = new Buffer(context, Object.values(keyMappings).map(keyMapping => keyMapping.sound));
+    buffer.loadAll();
+
+    function handleKeyPress(e) {
+      const soundObject = keyMappings.find( keyMapping => keyMapping.keyCode === e.which);
+  
+      if(soundObject) {
+        setActiveSound(soundObject.sound)
+      }
+    }
+
     window.addEventListener("keydown", e => {
-      this.handleKeyPress(e);
+      handleKeyPress(e);
     });
-
+  
     window.addEventListener("keyup", (e) => {
       // TODO: Make helper function to check keyCode
       if (keyMappings.findIndex(keyMapping => keyMapping.keyCode === e.which) === -1) return;
-      this.setState({activeSound: ""})
+      setActiveSound("")
     })
+  }, [])
+  
+  // Trigger sound when activeSound changes and is not an empty string
+  useEffect(() => {
+    if (activeSound === "") return;
 
-    // load all of our sounds
-    this.buffer = new Buffer(this.state.context, Object.values(keyMappings).map(keyMapping => keyMapping.sound));
-    this.buffer.loadAll();
-  }
+    const keyIndex = keyMappings.findIndex(keyMapping => keyMapping.sound === activeSound);
+    const soundFile = new Sound(context, buffer.getSoundByIndex(keyIndex));
 
-  handleKeyPress(e) {
-    const keyIndex = keyMappings.findIndex( keyMapping => keyMapping.keyCode === e.which);
+    soundFile.play(volume);
+  }, [activeSound]);
 
-    if (keyIndex === -1) return;
-
-    this.handlePadPress(keyMappings[keyIndex].sound, keyIndex)
-  }
-
-  handlePadPress = (sound, i) => {
-    if (sound === "") {
-      this.setState({activeSound: ""});
-      return;
-    }
-
-    const soundFile = new Sound(
-      this.state.context,
-      this.buffer.getSoundByIndex(i)
-    );
-
-    soundFile.play(this.state.volume);
-
-    // display the active sound in the LED Display
-    this.setState({
-      activeSound: sound
-    });
-  }
-
-  handleVolumeChange = newValue => {
-    this.setState({
-      volume: newValue
-    });
+  function handleVolumeChange(newValue) {
+    setVolume(newValue);
   };
 
-  render() {
-    return (
-      <AppContainer>
-        <header>
-          <Title>Drum Maschine 3000</Title>
-        </header>
-        <DrumMachine>
-          <LedDisplay volume={this.state.volume} sound={this.state.activeSound} />
-          <WorkSpace>
-            <DrumBank
-              activeSound={this.state.activeSound}
-              sounds={this.state.sounds}
-              handlePadPress={this.handlePadPress}
+  return (
+    <AppContainer>
+      <header>
+        <Title>Drum Maschine 3000</Title>
+      </header>
+      <DrumMachine>
+        <LedDisplay volume={volume} sound={activeSound} />
+        <WorkSpace>
+          <DrumBank
+            activeSound={activeSound}
+            sounds={sounds}
+            handlePadPress={setActiveSound}
+          />
+          <div>
+            <Knob
+              label="volume"
+              degrees={260}
+              min={1}
+              max={100}
+              value={volume}
+              onChange={handleVolumeChange}
             />
-            <div>
-              <Knob
-                label="volume"
-                degrees={260}
-                min={1}
-                max={100}
-                value={this.state.volume}
-                onChange={this.handleVolumeChange}
-              />
-            </div>
-          </WorkSpace>
-        </DrumMachine>
-      </AppContainer>
-    );
-  }
+          </div>
+        </WorkSpace>
+      </DrumMachine>
+    </AppContainer>
+  );
 }
 
 export default App;
