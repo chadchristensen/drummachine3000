@@ -43,7 +43,10 @@ const DrumMachine = styled.div`
 
 const WorkSpace = styled.div`
   display: flex;
+  justify-content: space-around;
+  margin: .75em;
 `
+
 let buffer;
 let context;
 
