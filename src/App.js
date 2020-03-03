@@ -100,6 +100,12 @@ class App extends Component {
     });
   }
 
+  handleVolumeChange = newValue => {
+    this.setState({
+      volume: newValue
+    });
+  };
+
   render() {
     return (
       <AppContainer>
@@ -107,7 +113,7 @@ class App extends Component {
           <Title>Drum Maschine 3000</Title>
         </header>
         <DrumMachine>
-          <LedDisplay sound={this.state.activeSound} />
+          <LedDisplay volume={this.state.volume} sound={this.state.activeSound} />
           <WorkSpace>
             <DrumBank
               activeSound={this.state.activeSound}
@@ -115,7 +121,14 @@ class App extends Component {
               handlePadPress={this.handlePadPress}
             />
             <div>
-              <Knob label="volume" minValue={0} maxValue={100} />
+              <Knob
+                label="volume"
+                degrees={260}
+                min={1}
+                max={100}
+                value={this.state.volume}
+                onChange={this.handleVolumeChange}
+              />
             </div>
           </WorkSpace>
         </DrumMachine>
