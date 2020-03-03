@@ -34,13 +34,13 @@ const ParameterRow = styled.div`
   }
 `
 
-function LedDisplay({ sound }) {
+function LedDisplay({ sound, volume }) {
   return (
     <DisplayContainer>
       <SoundRow sound={sound}>{sound}</SoundRow>
       <ParameterRow>
         {/* // TODO: Change to dynamic data for parameters */}
-        <span>Volume: 50%</span>
+        <span>Volume: {volume}%</span>
         <span>Delay: 20%</span>
       </ParameterRow>
     </DisplayContainer>
@@ -48,7 +48,8 @@ function LedDisplay({ sound }) {
 }
 
 LedDisplay.propTypes = {
-  sound: PropTypes.string
+  sound: PropTypes.string,
+  volume: PropTypes.number
 }
 
 export default React.memo(LedDisplay);
