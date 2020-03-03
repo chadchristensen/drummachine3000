@@ -33,8 +33,8 @@ function DrumPad({isActive, sound, keyboardChar, handlePadPress, item}) {
   return (
     <Pad
         isActive={isActive}
-        onMouseDown={() => handlePadPress(sound, item)}
-        onMouseUp={() => handlePadPress("", item)}
+        onMouseDown={() => handlePadPress(sound)}
+        onMouseUp={() => handlePadPress("")}
     >
       <kbd>{keyboardChar}</kbd>
     </Pad>
