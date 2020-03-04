@@ -26,7 +26,8 @@ const SoundRow = styled.div`
 
 const ParameterRow = styled.div`
   font-size: .7em;
-  align-self: flex-start;
+  // TODO: Uncomment once multiple parameters are added
+  /* align-self: flex-start; */
 
   span {
     display: inline-block;
@@ -39,9 +40,7 @@ function LedDisplay({ sound, volume }) {
     <DisplayContainer>
       <SoundRow sound={sound}>{sound}</SoundRow>
       <ParameterRow>
-        {/* // TODO: Change to dynamic data for parameters */}
         <span>Volume: {volume}%</span>
-        <span>Delay: 20%</span>
       </ParameterRow>
     </DisplayContainer>
   )
