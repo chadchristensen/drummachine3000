@@ -11,6 +11,7 @@ const Pad = styled.button`
   outline: none;
   border: ${props => props.isActive ? '2px outset rgba(149, 131, 165, 0.45)' : 'transparent'};
   box-shadow: 8px 8px 15px #575757, -8px -8px 15px #757575;
+  touch-action: none;
 
   &:hover {
     cursor: pointer;
