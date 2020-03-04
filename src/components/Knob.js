@@ -26,7 +26,7 @@ const InnerDial = styled.div`
 `
 
 const Label = styled.span`
-  font-family: 'Raleway Dots';
+  font-family: 'Heebo';
   text-shadow: rgba(255, 255, 255, .8) 0 0 2px;
   font-size: .75em;
   margin-top: .75em;

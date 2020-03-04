@@ -14,7 +14,7 @@ const DisplayContainer = styled.div`
   background: linear-gradient(174deg, #353535, #2d2d2d);
   border: 3px solid #2d2d2d;
   text-transform: uppercase;
-  font-family: 'Raleway Dots';
+  font-family: 'Heebo';
   text-shadow: rgba(255, 255, 255, .8) 0 0 2px;
 
   @media(max-width: 600px) {
