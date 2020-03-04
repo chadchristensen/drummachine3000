@@ -12,7 +12,7 @@ import keyMappings from './data/keyMappings.json';
 
 const AppContainer = styled.div`
   text-align: center;
-  padding: 3em;
+  padding: 2.5em;
   min-height: 100vh;
   background: #d3cce3;
   background: -webkit-linear-gradient(45deg, #e9e4f0, #d3cce3);
@@ -20,10 +20,12 @@ const AppContainer = styled.div`
 `
 
 const Title = styled.h1`
-  font-family: 'Oxygen', 'Arial', 'sans-serif';
+  font-family: 'Paytone One', 'Arial', 'sans-serif';
   font-weight: 700;
-  font-size: 3em;
+  font-size: 3.5em;
   font-variant: small-caps;
+  margin-top: 0;
+  margin-bottom: .75em;
   color: #332f3a;
   text-shadow: 0px 1px 2px #807598;
 `

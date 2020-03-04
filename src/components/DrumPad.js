@@ -21,11 +21,12 @@ const Pad = styled.button`
   }
 
   kbd {
-    font-family: 'Oxygen';
+    font-family: 'Paytone One';
+    font-weight: 400;
     font-size: ${props => props.isActive ? '2.4em' : '2.5em'};
     text-transform: uppercase;
     color: #d8d1e7;
-    text-shadow: 0 0 2px #d8d2e7;
+    text-shadow: 0 0 1px rgb(90, 87, 111);
   }
 `
 
