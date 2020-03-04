@@ -10,6 +10,10 @@ const PadsContainer = styled.div`
   flex-wrap: wrap;
   flex-flow: wrap-reverse;
   align-content: center;
+
+  @media(max-width: 600px) {
+    justify-content: center;
+  }
 `
 
 function DrumBank({ sounds, activeSound, handlePadPress }) {

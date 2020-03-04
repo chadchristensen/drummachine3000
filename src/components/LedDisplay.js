@@ -16,6 +16,12 @@ const DisplayContainer = styled.div`
   text-transform: uppercase;
   font-family: 'Raleway Dots';
   text-shadow: rgba(255, 255, 255, .8) 0 0 2px;
+
+  @media(max-width: 600px) {
+    width: 70%;
+    height: 4em;
+    font-size: .75em;
+  }
 `
 
 const SoundRow = styled.div`
@@ -31,7 +37,6 @@ const ParameterRow = styled.div`
 
   span {
     display: inline-block;
-    margin-right: 1em;
   }
 `
 

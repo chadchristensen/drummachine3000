@@ -12,27 +12,36 @@ import keyMappings from './data/keyMappings.json';
 
 const AppContainer = styled.div`
   text-align: center;
-  padding: 2.5em;
+  padding: 1.6em;
   min-height: 100vh;
   background: #d3cce3;
   background: -webkit-linear-gradient(45deg, #e9e4f0, #d3cce3);
   background: linear-gradient(45deg, #e9e4f0, #d3cce3);
+
+  @media(max-width: 600px) {
+    padding: .25em;
+  }
 `
 
 const Title = styled.h1`
   font-family: 'Paytone One', 'Arial', 'sans-serif';
   font-weight: 700;
-  font-size: 3.5em;
+  font-size: 3em;
   font-variant: small-caps;
   margin-top: 0;
-  margin-bottom: .75em;
+  margin-bottom: .5em;
   color: #332f3a;
   text-shadow: 0px 1px 2px #807598;
+
+  @media(max-width: 600px) {
+    font-size: 2em;
+  }
 `
 
 const DrumMachine = styled.div`
   display: inline-block;
-  width: 600px;
+  width: 95%;
+  max-width: 600px;
   padding: 25px;
   background-color: #666666;
   border-radius: 5px;
@@ -41,12 +50,26 @@ const DrumMachine = styled.div`
   border-top: 1px solid #565656;
   border-bottom: 4px solid #565656;
   box-shadow: 1px 3px 5px 0px #807598;
+
+  @media(max-width: 600px) {
+    padding: 15px;
+  }
 `
 
 const WorkSpace = styled.div`
   display: flex;
   justify-content: space-around;
   margin: .75em;
+
+  @media(max-width: 600px) {
+    margin: 0;
+  }
+`
+
+const ControlKnobs = styled.div`
+  @media(max-width: 600px) {
+    display: none;
+  }
 `
 
 let buffer;
@@ -113,7 +136,7 @@ function App () {
             sounds={sounds}
             handlePadPress={setActiveSound}
           />
-          <div>
+          <ControlKnobs>
             <Knob
               label="volume"
               degrees={260}
@@ -122,7 +145,7 @@ function App () {
               value={volume}
               onChange={handleVolumeChange}
             />
-          </div>
+          </ControlKnobs>
         </WorkSpace>
       </DrumMachine>
     </AppContainer>

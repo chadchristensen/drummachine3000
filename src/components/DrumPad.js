@@ -28,6 +28,25 @@ const Pad = styled.button`
     color: #d8d1e7;
     text-shadow: 0 0 1px rgb(90, 87, 111);
   }
+
+  @media(max-width: 768px) {
+    kbd {
+      display: none;
+    }
+  }
+
+  @media(max-width: 420px) {
+    height: 60px;
+    width: 60px;
+    margin: 7px;
+    border-radius: 4px;
+    box-shadow:  5px 5px 10px #575757, -5px -5px 10px #757575;
+  }
+
+  @media(max-width: 374px) {
+    height: 48px;
+    width: 48px;
+  }
 `
 
 function DrumPad({isActive, sound, keyboardChar, handlePadPress, item}) {
