@@ -22,7 +22,7 @@ const Pad = styled.button`
   }
 
   kbd {
-    font-family: 'Paytone One';
+    font-family: 'Oxanium', 'Arial', 'sans-serif';
     font-weight: 400;
     font-size: ${props => props.isActive ? '2.4em' : '2.5em'};
     text-transform: uppercase;

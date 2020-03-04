@@ -24,12 +24,12 @@ const AppContainer = styled.div`
 `
 
 const Title = styled.h1`
-  font-family: 'Paytone One', 'Arial', 'sans-serif';
+  font-family: 'Oxanium', 'Arial', 'sans-serif';
   font-weight: 700;
   font-size: 3em;
   font-variant: small-caps;
-  margin-top: 0;
-  margin-bottom: .5em;
+  margin-top: .25em;
+  margin-bottom: .4em;
   color: #332f3a;
   text-shadow: 0px 1px 2px #807598;
 
