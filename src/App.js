@@ -80,7 +80,7 @@ function App () {
 
   const [activeSound, setActiveSound] = useState('Hit a pad');
   const [volume, setVolume] = useState(50);
-
+  const [pitch, setPitch] = useState(50);
   // Setup on first render
   useEffect(() => {
     // Setup Audio context
@@ -116,12 +116,16 @@ function App () {
     const keyIndex = keyMappings.findIndex(keyMapping => keyMapping.sound === activeSound);
     const soundFile = new Sound(context, buffer.getSoundByIndex(keyIndex));
 
-    soundFile.play(volume);
+    soundFile.play(volume, pitch);
   }, [activeSound]);
 
   function handleVolumeChange(newValue) {
     setVolume(newValue);
   };
+
+  function handlePitchChange(newPitchValue) {
+    setPitch(newPitchValue);
+  }
 
   return (
     <AppContainer>
@@ -129,7 +133,7 @@ function App () {
         <Title>Drum Maschine 3000</Title>
       </header>
       <DrumMachine>
-        <LedDisplay volume={volume} sound={activeSound} />
+        <LedDisplay volume={volume} pitch={pitch} sound={activeSound} />
         <WorkSpace>
           <DrumBank
             activeSound={activeSound}
@@ -144,6 +148,14 @@ function App () {
               max={100}
               value={volume}
               onChange={handleVolumeChange}
+            />
+            <Knob
+              label='pitch'
+              degrees={260}
+              min={1}
+              max={100}
+              value={pitch}
+              onChange={handlePitchChange}
             />
           </ControlKnobs>
         </WorkSpace>

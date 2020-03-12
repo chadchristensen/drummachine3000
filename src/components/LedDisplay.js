@@ -33,19 +33,21 @@ const SoundRow = styled.div`
 const ParameterRow = styled.div`
   font-size: .7em;
   // TODO: Uncomment once multiple parameters are added
-  /* align-self: flex-start; */
+  align-self: flex-start;
 
   span {
     display: inline-block;
+    margin-right: 1em;
   }
 `
 
-function LedDisplay({ sound, volume }) {
+function LedDisplay({ sound, volume, pitch }) {
   return (
     <DisplayContainer>
       <SoundRow sound={sound}>{sound}</SoundRow>
       <ParameterRow>
         <span>Volume: {volume}%</span>
+        <span>Pitch: {(pitch - 50) * 2}%</span>
       </ParameterRow>
     </DisplayContainer>
   )
@@ -53,7 +55,8 @@ function LedDisplay({ sound, volume }) {
 
 LedDisplay.propTypes = {
   sound: PropTypes.string,
-  volume: PropTypes.number
+  volume: PropTypes.number,
+  pitch: PropTypes.number
 }
 
 export default React.memo(LedDisplay);

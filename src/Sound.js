@@ -13,9 +13,10 @@ export default class Sound {
         this.gainNode.connect(this.context.destination);
     }
   
-    play(volume) {
+    play(volume, pitch) {
       this.setup();
       let gain = volume / 100;
+      this.source.playbackRate.value = pitch / 50;
       this.gainNode.gain.setValueAtTime(gain, 0);
       this.source.start(this.context.currentTime);
     }  
