@@ -4,7 +4,7 @@
 
 Drum Machine 3000 is a project I am building to combine my two passions of web development and music.
 
-Check out [Drum Machine 3000](https://eloquent-lewin-b1a381.netlify.com/)
+Check out [Drum Machine 3000](https://eloquent-lewin-b1a381.netlify.app/)
 
 ## Resources
 
